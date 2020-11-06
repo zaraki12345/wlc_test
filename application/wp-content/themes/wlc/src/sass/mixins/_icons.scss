@@ -1,0 +1,9 @@
+/* Button Background */
+@mixin fill-variant($color) {
+    @if(type-of($color) == color) {
+        fill: $color;
+    }
+    @else {
+        fill: nth($color, 1);
+    }
+}

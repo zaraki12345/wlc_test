@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+
+  wordpress:
+    image: wordpress:5-php7.3
+    container_name: ${PROJECTNAME}-wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - nfsmount:/var/www/html
+
+  db:
+    image: mysql:5.7
+    container_name: ${PROJECTNAME}-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - .docker/db/data:/var/lib/mysql
+
+volumes:
+  nfsmount:
+    driver: local
+    name: ${PROJECTNAME}-wordpress-volume
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: ":/System/Volumes/Data${PWD}/application" # MacOS: Catalina
+#      device: ":${PWD}/application" # MacOS: Mojave

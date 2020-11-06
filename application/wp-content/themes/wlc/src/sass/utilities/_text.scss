@@ -1,0 +1,111 @@
+/* Colors */
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    color: $value;
+  }
+  a.text-#{$color}:hover {
+    color: $value;
+  }
+  .text-hover-#{$color} {
+    @include hover-focus {
+      color: $value;
+    }
+  }
+}
+
+/* Sizes */
+@each $prep, $abbrev in ($text-sizes) {
+  .text-#{$prep} {
+    font-size: $abbrev !important;
+  }
+}
+
+/* Weights */
+@each $prep, $abbrev in ($font-weights) {
+  .font-#{$prep} {
+    font-weight: $abbrev !important;
+  }
+}
+
+.text-line-1 {
+  line-height:1;
+}
+.text-line-2 {
+  line-height:1.25;
+}
+.text-line-3 {
+  line-height:1.5;
+}
+.text-line-4 {
+  line-height:1.75;
+}
+.text-line-double {
+  line-height:2;
+}
+
+// Alignment
+.text-justify  {text-align: justify !important;}
+.text-underline {text-decoration: underline !important;}
+.text-decoration-none {text-decoration: none !important;}
+.text-nowrap   {white-space: nowrap !important;}
+.text-wrap   {white-space: normal !important;}
+.text-unstyled { text-decoration:none !important;}
+.text-oneline {
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  
+}
+
+.text-nounderline {text-decoration: none !important;}
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+// Transformation
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.btn-arrow {
+  width: 0.7rem;
+  margin-left: 1rem;
+  position: relative;
+  top: 1px;
+}
+
+.kontakt .contact-form .btn-secondary .btn-arrow {
+  top: 0;
+}
+
+.btn-arrow-fill {
+  transition: all .2s ease-in-out;
+}
+
+@media screen and (min-width: 992px) {
+  .btn-arrow {
+    width: 1rem;
+    margin-left: 1rem;
+    position: relative;
+    top: 2px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .kontakt .contact-form .btn-secondary .btn-arrow {
+    width: 0.75rem;
+  }
+}
+
+.text-semibold {
+  font-family: OpenSansSemibold;
+}

@@ -1,0 +1,31 @@
+.vline {
+    width:1px;
+    height:100%;
+}
+.vline-semi-bold {
+    width:2px;
+}
+.vline-bold {
+    width:0.25rem;
+}
+@each $color, $value in $theme-colors {
+    .vline-#{$color} {
+        @include bg-variant($value);
+    }
+}
+
+.hline {
+    height:1px;
+    width:100%;
+}
+.hline-semi-bold {
+    height:2px;
+}
+.hline-bold {
+    height:0.25rem;
+}
+@each $color, $value in $theme-colors {
+    .hline-#{$color} {
+        @include bg-variant($value);
+    }
+}

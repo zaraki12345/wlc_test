@@ -1,0 +1,68 @@
+@each $prop, $abbrev in (bottom-left: bl, bottom-right: br, top-left: tl, top-right: tr) {
+  .rounded-#{$abbrev} {
+    border-#{$prop}-radius: $border-radius;
+  }
+}
+
+.rounded {
+  border-radius: $border-radius;
+}
+.rounded-t {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+.rounded-r {
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+.rounded-b {
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+.rounded-r {
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+.border {
+  border-style: $border-style;
+  border-width: $border-width;
+}
+.border-b {
+  border-bottom-style: $border-style;
+  border-bottom-width: $border-width;
+}
+.border-t {
+  border-top-style: $border-style;
+  border-top-width: $border-width;
+}
+.border-l {
+  border-left-style: $border-style;
+  border-left-width: $border-width;
+}
+.border-r {
+  border-right-style: $border-style;
+  border-right-width: $border-width;
+}
+.border-strong {
+  border-width: $border-width * 2;
+}
+.middle-border {
+	position: relative;
+}
+.middle-border:after {
+	content: '';
+	border-top: 1px solid #f3f6fd;
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+.middle-border .bg-white {
+	z-index: 100;
+}
+@each $name, $color in $theme-colors {
+  .border-#{$name} {
+    @include border-variant($color);
+  }
+}

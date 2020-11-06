@@ -1,0 +1,48 @@
+/* Button Variations */
+@mixin button-variant($color) {
+
+  @include bg-variant($color);
+  @include border-variant($color);
+
+  &.btn-transparent {
+    @include bg-variant($color);
+  }
+
+  @include hover {
+    background-color: $color-white;
+    @include color-variant($color);
+    .icon {
+      @include fill-variant($color);
+    }
+  }
+}
+
+/* Button Variations */
+@mixin button-variant-reversed($color) {
+  background-color: $color-white;
+  @include color-variant($color);
+  .icon {
+    @include fill-variant($color);
+  }
+
+  @include hover {
+    @include bg-variant($color);
+    color:#FFF;
+    .icon {
+      fill: #FFF;
+    }
+  }
+}
+
+/* Button Size */
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: 1;
+  border-radius: $border-radius;
+}
+
+@mixin button-background-hover($color) {
+  color:#FFF;
+  position:relative;
+}

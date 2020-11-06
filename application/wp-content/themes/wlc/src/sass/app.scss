@@ -1,0 +1,79 @@
+// Open Sans
+@font-face {
+    font-display: swap;
+    font-family: 'NunitoSansRegular';
+    src: url('../font/nunito-sans/NunitoSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-display: swap;
+    font-family: 'NunitoSansSemiBold';
+    src: url('../font/open-sans/NunitoSans-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-display: swap;
+    font-family: 'NunitoSansBold';
+    src: url('../font/open-sans/NunitoSans-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'PoppinsRegular';
+  src: url('../font/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-display: swap;
+  font-family: 'PoppinsSemiBold';
+  src: url('../font/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-display: swap;
+  font-family: 'PoppinsBold';
+  src: url('../font/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// colors
+@import "colors";
+
+// bootstrap
+@import "bootstrap/variables";
+@import "bootstrap/build";
+
+// theme
+@import "variables";
+
+// mixins
+@import "mixins/hover";
+@import "mixins/buttons";
+@import "mixins/backgrounds";
+@import "mixins/colors";
+@import "mixins/icons";
+@import "mixins/forms";
+@import "mixins/overlays";
+@import "mixins/animations";
+
+// parts
+@import "general";
+@import "buttons";
+@import "backgrounds";
+@import "links";
+@import "utilities";
+@import "forms";
+@import "fonts";
+
+// specific
+@import "specific/header";
+@import "specific/page_home";
+@import "specific/footer";
+@import "specific/nav";

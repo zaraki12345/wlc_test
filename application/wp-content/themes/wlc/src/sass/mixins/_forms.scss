@@ -1,0 +1,19 @@
+
+/* Forms */
+@mixin input-size($padding-y, $padding-x, $font-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+}
+
+@mixin input-placeholder($font-size) {
+  &::placeholder {
+    font-weight: $input-font-weight;
+    color: $color-muted;
+    font-size: $font-size;
+    line-height: $input-line-height;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

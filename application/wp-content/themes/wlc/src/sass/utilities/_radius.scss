@@ -1,0 +1,24 @@
+@each $prop, $abbrev in (bottom-left: bl, bottom-right: br, top-left: tl, top-right: tr) {
+    .rounded-#{$abbrev} {
+        border-#{$prop}-radius: $border-radius;
+    }
+}
+.rounded-b {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}
+.rounded-t {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+}
+.rounded-l {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+}
+.rounded-r {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}
+.rounded {
+    border-radius: $border-radius;
+}

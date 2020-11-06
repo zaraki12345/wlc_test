@@ -1,0 +1,226 @@
+input,
+label {
+  vertical-align: middle;
+  line-height: 1.25;
+}
+
+textarea {
+  min-height: 10rem;
+}
+
+.form-control {
+  height: calc(1.85em + 0.75rem + 2px);
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 17px;
+  border: 1px solid #C0C0C0;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: $color-primary;
+}
+.was-validated .form-control:valid:focus, 
+.form-control.is-valid:focus {
+  border-color: #00A6E6;
+  box-shadow: none;
+  outline: none;
+}
+
+[type="text"],
+[type="password"],
+[type="number"],
+select,
+textarea,
+.input {
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  line-height: $input-line-height;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  font-weight: $input-font-weight;
+  color: $color-default;
+
+  // animations
+  @include animation(border);
+
+  // size
+  @include input-size($input-padding-y, $input-padding-x, $input-font-size);
+
+  @each $size, $values in $input-sizes {
+    &.input-#{$size} {
+      @include input-size(map-get($values, "padding-y"), map-get($values, "padding-x"), map-get($values, "font-size"));
+    }
+  }
+
+  // placeholder
+  @include input-placeholder($input-font-size);
+
+  @each $size, $values in $input-sizes {
+    &.input-#{$size} {
+      @include input-placeholder(map-get($values, "font-size"));
+    }
+  }
+
+  // colors
+  @each $color, $value in $theme-colors {
+    &.input-#{$color} {
+      @include focus-active() {
+        @include border-variant($value);
+      }
+    }
+  }
+
+  &:disabled {
+    border-color: $color-muted;
+  }
+}
+
+// input color v2
+[type="text"].input-fill,
+[type="password"].input-fill,
+[type="number"].input-fill,
+select.input-fill,
+textarea,
+.input.input-fill {
+  background-color: $color-white;
+  line-height: $input-line-height;
+  border: $input-border-width solid $color-white;
+}
+
+.checkbox,
+.radio {
+  line-height: 1;
+
+  input {
+    display: block;
+    position: relative;
+
+    &:empty {
+      margin: 0 0 0 -9999px;
+      font-size: 0;
+      line-height: 0;
+      height: 0;
+      max-height: 0;
+    }
+
+    ~ label {
+      > * {
+        pointer-events: unset;
+      }
+
+      line-height: 1.25;
+      padding-left: 1.5rem;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.875rem;
+      margin-bottom: 0;
+
+      &::before {
+        pointer-events: none;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1rem;
+        height: 1rem;
+        z-index: 10;
+        border-radius: 0.25rem;
+        transform: translateY(-50%);
+      }
+
+      > div.icon {
+        pointer-events: none;
+        display: none;
+        position: absolute;
+        top: 50%;
+        height: 0.75rem;
+        width: 0.75rem;
+        left: 0.125rem;
+        transform: translateY(-50%);
+        z-index: 20;
+        fill: $color-white;
+      }
+    }
+
+    &:hover:not(:checked) ~ label > .icon,
+    &:checked ~ label > .icon {
+      display: block;
+    }
+  }
+
+  // colors
+  @each $color, $value in $theme-colors {
+    &.checkbox-#{$color} {
+      input:checked ~ label::before {
+        @include bg-variant($value);
+      }
+
+      input ~ label::after {
+        @include bg-variant($value);
+      }
+    }
+  }
+}
+
+.icon-input{
+  input{
+    padding-right: 2rem;
+  }
+
+  .searchbox-img{
+    margin-left: -1.5rem;
+  }
+}
+
+.form-label {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+.input-icon {
+  position: relative;
+
+
+  i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+::-webkit-input-placeholder {
+  // color: $color-light!important;
+  font-size: 15px;
+}
+::-moz-placeholder {
+  // color: $color-light!important;
+  font-size: 15px;
+}
+:-ms-input-placeholder {
+  // color: $color-light!important;
+  font-size: 15px;
+}
+:-moz-placeholder {
+  // color: $color-light!important;
+  font-size: 15px;
+}
+.was-validated .form-control:invalid, 
+.form-control.is-invalid {
+  border-color: #e95063 !important;
+  box-shadow: none;
+}
+.invalid-feedback {
+  position: absolute;
+  line-height: 12px;
+}
+

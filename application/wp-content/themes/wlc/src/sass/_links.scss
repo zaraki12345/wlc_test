@@ -1,0 +1,41 @@
+a.link {
+  align-items: center;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 0.125rem;
+    width: 0px;
+    background: $color-white;
+    transition: width .5s ease, background-color .5s ease;
+    border-radius:0px;
+  }
+
+  @each $color, $value in $theme-colors {
+    &.link-#{$color} {
+      @include color-variant($value);
+    }
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+    &:after {
+      width:100%;
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &.link-#{$color} {
+      @include color-variant($value);
+      &:after {
+        @include bg-variant($value);
+      }
+    }
+  }
+}

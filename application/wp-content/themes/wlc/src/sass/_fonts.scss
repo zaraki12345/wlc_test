@@ -1,0 +1,19 @@
+.font-primary {
+  font-family: $font-primary-regular;
+  &.font-bold {
+    font-family: $font-primary-bold;
+  }
+  &.font-semi-bold {
+    font-family: $font-primary-semi-bold;
+  }
+}
+
+.font-secondary {
+  font-family: $font-secondary-regular;
+  &.font-secondary-bold {
+    font-family: $font-secondary-bold;
+  }
+  &.font-secondary-semi-bold {
+    font-family: $font-secondary-semi-bold;
+  }
+}

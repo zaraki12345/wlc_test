@@ -1,0 +1,53 @@
+.header {
+	@include animation(height);
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height: 10.625rem;
+	z-index:5000;
+
+	&__top {
+		background-color:$color-primary;
+		padding: 1rem 0;
+	}
+	&__links {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		&--middle{
+			margin: 0 3.375rem;
+		}
+		a {
+			text-decoration: none;
+			font-size: 1.125rem;
+			color: $color-white;
+			font-family: $font-primary-bold;
+		}
+		.btn-white { 
+			border: 0.0625rem solid $color-white;
+			color: $color-default;
+			background-color: $color-white;
+			border-radius: .25rem;
+			padding: 1.2rem 2rem;
+			transition: all .3s ease-in-out;
+			span {
+				margin-right: .5rem;
+			}
+			&:after {
+				content: none;
+			}
+		}
+	}
+}
+
+
+@media screen and (min-width: 992px) {
+  .header {
+    &__logo {
+		max-width: max-content;
+    }
+  }
+}

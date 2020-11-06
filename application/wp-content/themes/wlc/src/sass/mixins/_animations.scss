@@ -1,0 +1,40 @@
+/* Animations */
+@mixin animation($prop1, $prop2:"", $prop3:"") {
+
+  $variable: $prop1 $animation-time $animation-style;
+
+  @if $prop2 != "" {
+    $variable: $variable , $prop2 $animation-time $animation-style;
+  }
+
+  @if $prop3 != "" {
+    $variable: $variable , $prop3 $animation-time $animation-style;
+  }
+
+  -webkit-transition: $variable;
+  -moz-transition: $variable;
+  -ms-transition: $variable;
+  -o-transition: $variable;
+  transition: $variable;
+}
+
+
+/* Animations */
+@mixin slowAnimation($prop1, $prop2:"", $prop3:"") {
+
+  $variable: $prop1 $animation-time*3 $animation-style;
+
+  @if $prop2 != "" {
+    $variable: $variable , $prop2 $animation-time*3 $animation-style;
+  }
+
+  @if $prop3 != "" {
+    $variable: $variable , $prop3 $animation-time*3 $animation-style;
+  }
+
+  -webkit-transition: $variable;
+  -moz-transition: $variable;
+  -ms-transition: $variable;
+  -o-transition: $variable;
+  transition: $variable;
+}

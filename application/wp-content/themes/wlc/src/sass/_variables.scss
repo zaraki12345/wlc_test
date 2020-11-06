@@ -1,0 +1,93 @@
+$font-primary-regular: 'PoppinsRegular';
+$font-primary-semi-bold: 'PoppinsSemiBold';
+$font-primary-bold: 'PoppinsBold';
+
+$font-secondary-regular: 'NunitoSansRegular';
+$font-secondary-semi-bold: 'NunitoSansSemiBold';
+$font-secondary-bold: 'NunitoSansBold';
+
+// buttons
+$btn-font-weight: 400;
+$btn-border-width: 1px;
+$btn-padding-y: 1.125rem;
+$btn-padding-x: 2.5rem;
+$btn-font-size: 0.75rem;
+$btn-border-radius: 0.375rem;
+
+$btn-sizes: (
+    "l": (
+      "padding-y": 0.625rem,
+      "padding-x": 1.25rem,
+      "font-size": 0.875rem,
+      "border-radius": 1.125rem,
+      "multiplier": 1.125
+    ),
+    "xl": (
+      "padding-y": 0.875rem,
+      "padding-x": 1.75rem,
+      "font-size": 1rem,
+      "border-radius": 1.4375rem,
+      "multiplier": 1.375
+    )
+);
+$font-size-base: 1rem;
+// text sizes
+$text-sizes: (
+    "xxs": $font-size-base * 0.625,
+    "xs": $font-size-base * 0.75,
+    "s": $font-size-base * 0.875,
+    "m": $font-size-base,
+    "l": $font-size-base * 1.125,
+    "xl": $font-size-base * 1.25,
+    "xxl": $font-size-base * 1.5,
+    "xxxl": $font-size-base * 1.75,
+    "xxxxl": $font-size-base * 2,
+    "max-s": $font-size-base * 2.5,
+    "max-m": $font-size-base * 3,
+    "max-l": $font-size-base * 3.5,
+    "max-xl": $font-size-base * 3.75,
+);
+
+// font-weight
+$font-weights: (
+    "light": 300,
+    "normal": 400,
+    "semi-bold": 600,
+    "bold": 800,
+);
+
+// borders
+$border-width: 1px;
+$border-style: solid;
+$border-radius: 0.25rem;
+
+// element default size
+$el-size: 1rem;
+// element sizes
+$el-sizes: (
+    "xs": $el-size * 0.75,
+    "s": $el-size * 0.875,
+    "m": $el-size,
+    "l": $el-size * 1.125,
+    "xl": $el-size * 1.25,
+    "xxl": $el-size * 1.5,
+    "xxxl": $el-size * 2,
+);
+
+// animations
+$animation-time: 0.2s;
+$animation-style: ease-in-out;
+
+// forms
+$input-padding-x: 1rem;
+$input-padding-y: 1rem;
+$input-font-size: 0.875rem;
+$input-font-weight: 400;
+$input-line-height: 1rem;
+$input-height: 2.5rem;
+$input-border-radius: 0px;
+$input-border-color: $color-white;
+$input-border-width: 0.0625rem;
+
+// additional input sizes
+$input-sizes: $btn-sizes;

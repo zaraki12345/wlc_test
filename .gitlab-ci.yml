@@ -1,0 +1,36 @@
+image: docker:latest
+services:
+    - docker:dind
+
+variables:
+    REGISTRY_IMAGE: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
+
+stages:
+    - build
+    - deploy
+
+build:
+    stage: build
+    script:
+        - docker login ${CI_REGISTRY} -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
+        - docker build -t ${REGISTRY_IMAGE} .
+        - docker tag ${REGISTRY_IMAGE} ${CI_REGISTRY_IMAGE}:latest
+        - docker push ${REGISTRY_IMAGE}
+        - docker push ${CI_REGISTRY_IMAGE}:latest
+    only:
+        - sandbox
+
+deploy:
+    stage: deploy
+    image: dtzar/helm-kubectl
+    before_script:
+        - mkdir ~/.kube
+        - touch ~/.kube/config
+        - echo ${KUBECONFIG_BASE64} | base64 -d > ~/.kube/config
+    script:
+        - kubectl set image deployment ${KUBE_DEPLOYMENT} ${CI_PROJECT_NAME}=${REGISTRY_IMAGE}
+        # - kubectl rollout restart deployment ${KUBE_DEPLOYMENT}
+    only:
+        - sandbox
+    environment:
+        name: sandbox

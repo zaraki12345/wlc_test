@@ -1,0 +1,131 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-weight: $btn-font-weight;
+    font-size:$btn-font-size;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    cursor: pointer;
+    color: $color-white;
+    border: $btn-border-width solid $color-primary;
+    position: relative;
+    overflow:hidden;
+    line-height: 1;
+    letter-spacing:1.25px;
+    text-decoration: none;
+    transition: background .2s ease-in-out,border-color .2s ease-in-out,color .2s ease-in-out;
+
+    // colors
+    @each $color, $value in $theme-colors {
+        &.btn-#{$color} {
+            @include button-variant($value);
+            &.btn-reversed {
+              &.btn-transparent {
+                  background-color:transparent;
+              }
+              @include button-variant-reversed($value);
+            }
+        }
+    }
+
+    @include hover-focus {
+        text-decoration: none;
+        outline:none;
+        &.btn-transparent {
+            background-color:transparent;
+        }
+    }
+
+    &.btn-block {
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
+
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+
+    &.btn-wide {
+      @include button-size($btn-padding-y, $btn-padding-x*2, $btn-font-size, $btn-border-radius);
+    }
+
+    // colors
+    @each $size, $values in $btn-sizes {
+        &.btn-#{$size} {
+          @include button-size(map-get($values, 'padding-y'), map-get($values, 'padding-x'), map-get($values, 'font-size'), map-get($values, 'border-radius'));
+          .icon {
+            width:(1rem * map-get($values, 'multiplier'));
+            height:(1rem * map-get($values, 'multiplier'));
+            &.icon-start {
+                margin-left:(-0.375rem * map-get($values, 'multiplier'));;
+                margin-right:(0.5rem * map-get($values, 'multiplier'));;
+            }
+            &.icon-end {
+                margin-right:(-0.375rem * map-get($values, 'multiplier'));;
+                margin-left:(0.5rem * map-get($values, 'multiplier'));;
+            }
+          }
+        }
+    }
+
+    &[disabled] {
+      cursor: default;
+      @include bg-variant($color-muted);
+      @include color-variant($color-white);
+      @include border-variant($color-muted);
+      @include hover-focus {
+        @include bg-variant($color-muted);
+        @include color-variant($color-white);
+        @include border-variant($color-muted);
+      }
+    }
+
+    .icon {
+        margin-top:-2px;
+        margin-bottom:-2px;
+        width:1rem;
+        height:1rem;
+        fill:$color-white;
+        &.icon-start {
+            margin-left:-0.375rem;
+            margin-right:0.5rem;
+        }
+        &.icon-end {
+            margin-right:-0.375rem;
+            margin-left:0.5rem;
+        }
+    }
+}
+.btn-compare {
+    background-color: $color-default;
+    border-color: $color-default;
+    font-size: 25px;
+    color: #fff;
+    z-index: 1;
+    text-decoration: none !important;
+    box-shadow: 0 5px 9px 0 rgba(0,0,0,0.33);
+    letter-spacing: 0;
+    line-height: 30px;
+    font-weight: unset;
+    padding: 21.5px 80px;
+    &:hover{
+        color: $color-primary;
+    }
+    &:hover .btn-arrow-fill {
+      fill: $color-primary;
+    }
+}
+
+.kontakt .contact-form .btn-secondary:hover {
+  &:hover .btn-arrow-fill {
+    fill: $color-primary;
+  }
+}
+.btn-default {
+    &:hover {
+        background-color: $color-default !important;
+        border-color: $color-default !important;
+        color: #ffffff !important;
+    }
+}

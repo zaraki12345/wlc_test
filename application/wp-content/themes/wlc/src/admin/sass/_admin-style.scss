@@ -1,0 +1,79 @@
+#emailPrivew {
+  padding:10px;
+  background:#EEE;
+  margin-bottom:20px;
+  border-radius:8px;
+}
+.custom_metaboxes {
+  label {
+    width:100%;
+    display:inline-block;
+  }
+  input {
+    width:100%;
+  }
+  .form-group {
+    padding:3px 0;
+  }
+}
+.st-custom-admin {
+  input[type=number] {
+    max-width: 175px;
+  } 
+  p {
+    position:relative;
+  }
+  input.custom-image-upload-input {
+    width: calc(100% - 120px);
+    display: block;
+  }
+  input.custom-image-upload-input ~ a.button {
+    position:absolute;
+    top:27px;
+    right:0;
+  }
+  .st-tooltip, 
+  .st-tooltip-gallery {
+    cursor: default;
+    text-decoration: underline;
+  }
+  label {
+    display:block;
+    color:#00A6E6;
+    &.checkbox,
+    &.radio {
+      display:inline;
+    }
+  }
+  .text-right {
+    text-align:right;
+  }
+  .text-center {
+    text-align:center;
+  }
+  .text-left {
+    text-align:left;
+  }
+}
+
+.ui-tooltip {
+  min-width:0px !important;
+  max-width:700px !important;
+  width:auto !important;
+  font-size:12px;
+}
+.wp-picker-holder {
+  position: absolute;
+  z-index: 999999;
+  box-shadow: 2px 2px 5px #666;
+}
+.pattern-line {
+  background: #FAFAFA;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+textarea {
+  line-height: 2 !important;
+  min-height: 30px;
+}

@@ -1,0 +1,27 @@
+/* Color */
+@mixin color-variant($color) {
+    @if(type-of($color) == color) {
+        color: $color;
+    }
+    @else {
+        color: nth($color, 1);
+    }
+}
+
+@mixin border-variant($color) {
+    @if(type-of($color) == color) {
+        border-color: $color;
+    }
+    @else {
+        border-color: nth($color, 1);
+    }
+}
+
+@mixin fill-variant($color) {
+    @if(type-of($color) == color) {
+        fill: $color;
+    }
+    @else {
+        fill: nth($color, 1);
+    }
+}
